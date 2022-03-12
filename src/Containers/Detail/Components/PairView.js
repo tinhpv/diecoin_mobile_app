@@ -37,14 +37,12 @@ const styles = StyleSheet.create({
 })
 
 PairView.propTypes = {
-  leftToken: PropTypes.PropTypes.object,
-  rightToken: PropTypes.object,
+  leftToken: PropTypes.object.isRequired,
+  rightToken: PropTypes.object.isRequired,
   size: PropTypes.oneOf(['small', 'big']),
 }
 
 PairView.defaultProps = {
-  leftToken: {},
-  rightToken: {},
   size: 'big',
 }
 

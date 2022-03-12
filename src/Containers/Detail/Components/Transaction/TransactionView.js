@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { View, StyleSheet } from 'react-native'
 import { useTheme } from '@/Hooks'
-import { useMainToken } from '../../Hooks/useMainToken'
+import { useMainToken } from '../../../../Hooks/Pair/useMainToken'
 import { useSearchTerm } from '@/Containers/Search/Hooks/useSearchTerm'
 import SegmentedControlTab from 'react-native-segmented-control-tab'
 
