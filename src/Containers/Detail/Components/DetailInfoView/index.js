@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { View, StyleSheet, Text } from 'react-native'
 import { WebView } from 'react-native-webview'
+
 import { useTheme } from '@/Hooks'
-import IncreasingView from '../IncreasingView'
-import DetailInfoView from '../DetailInfoView'
+import VolumeChangeView from './VolumeChangeView'
+import DetailInfoView from './DetailInfoView'
 import { useLazyFetchPairDetailQuery } from '@/Services/modules/pair'
 import { displayPrice } from '@/Utils/numbers'
 
@@ -38,7 +39,7 @@ const ChartBox = ({ detail, exchange }) => {
         </Text>
 
         {/* 24h CHANGE */}
-        <IncreasingView percent={newDetail.vol24hPercent} />
+        <VolumeChangeView percent={newDetail.vol24hPercent} />
       </View>
 
       {/* TOKEN-1 PRICE */}

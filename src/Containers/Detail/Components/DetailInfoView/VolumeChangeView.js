@@ -1,8 +1,9 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { useTheme } from '@/Hooks'
+import PropTypes from 'prop-types'
 
-const IncreasingView = ({ percent }) => {
+const VolumeChangeView = ({ percent }) => {
   const { Layout, Gutters, Fonts, Common } = useTheme()
   const isIncreasing = percent > 0
 
@@ -29,4 +30,8 @@ const styles = StyleSheet.create({
   },
 })
 
-export default IncreasingView
+VolumeChangeView.propTypes = {
+  percent: PropTypes.number.isRequired,
+}
+
+export default VolumeChangeView

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { View, StyleSheet, Image } from 'react-native'
 import { useTheme } from '@/Hooks'
-import LabelContentView from './LabelContentView'
+import LabelContentView from '@/Components/LabelContentView'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { abbreviate } from '@/Utils/numbers'
 import { useFetchTokenInfoQuery } from '@/Services/modules/token'

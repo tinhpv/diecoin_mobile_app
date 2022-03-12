@@ -7,6 +7,7 @@ import {
   ActivityIndicator,
   Linking,
 } from 'react-native'
+import PropTypes from 'prop-types'
 import { useTheme } from '@/Hooks'
 import Spacer from '@/Components/Spacer'
 import { useFetchSocialNetworkInfoQuery } from '@/Services/modules/token'
@@ -16,6 +17,7 @@ import {
   removeFromFavoriteList,
 } from '@/Containers/Favorite/FavoriteHelper'
 import IconButton from '@/Components/IconButton'
+import { swapApps } from '@/Constant'
 
 const ActionStack = ({ exchange, tokenId, pairId }) => {
   const { Images, Layout, Gutters } = useTheme()
@@ -156,5 +158,16 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
 })
+
+ActionStack.propTypes = {
+  exchange: PropTypes.oneOf([
+    swapApps.PANCAKE,
+    swapApps.RAYDIUM,
+    swapApps.SUSHI,
+    swapApps.UNISWAP,
+  ]).isRequired,
+  pairId: PropTypes.string.isRequired,
+  tokenId: PropTypes.string.isRequired,
+}
 
 export default ActionStack

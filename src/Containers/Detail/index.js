@@ -5,15 +5,15 @@ import {
   ImageBackground,
   StyleSheet,
   Platform,
+  ScrollView,
 } from 'react-native'
 
 import { useTheme } from '@/Hooks'
 import PairView from './Components/PairView'
-import { ScrollView } from 'react-native-gesture-handler'
 import CopiableInfoView from './Components/CopiableInfoView'
-import ChartBox from './Components/DetailInfoView/ChartBox'
+import ChartBox from './Components/DetailInfoView'
 import ActionStack from './Components/ActionStack'
-import TransactionView from './Components/Transaction/TransactionView'
+import TransactionView from './Components/Transaction'
 
 const DetailContainer = ({ route }) => {
   const { Images, Layout, Gutters } = useTheme()
