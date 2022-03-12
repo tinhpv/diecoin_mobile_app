@@ -109,24 +109,24 @@ const CheckTransactionView = ({ exchange, tokenId, type }) => {
       {isLoading && (
         <ActivityIndicator style={Gutters.smallTMargin} size={'small'} />
       )}
-      {isSuccess && (
-        <>
-          <View style={[styles.table, Gutters.tinyTMargin]}>
+      <View style={[styles.table, Gutters.tinyTMargin]}>
+        {isSuccess && (
+          <>
             {header()}
             <FlatList
               keyExtractor={item => item.address}
               data={data.topTrade}
               renderItem={row}
             />
-          </View>
-        </>
-      )}
+          </>
+        )}
+      </View>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-  table: { width: '100%', height: 550 },
+  table: { width: '100%', height: 500 },
   label: { width: 120 },
 })
 

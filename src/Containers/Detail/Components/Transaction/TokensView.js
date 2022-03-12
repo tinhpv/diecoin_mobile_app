@@ -261,8 +261,6 @@ const TokensView = ({ exchange, detail }) => {
           style={[
             Layout.row,
             Layout.justifyContentCenter,
-            Layout.fill,
-            Layout.fullWidth,
             Gutters.smallVPadding,
           ]}
         >
@@ -326,10 +324,11 @@ const TokensView = ({ exchange, detail }) => {
       {(isFetchByTokenLoading || isFetchByPairLoading) && (
         <ActivityIndicator style={Gutters.smallTMargin} size={'small'} />
       )}
-      {(isFetchByTokenBaseApiSuccess || isFetchByFairBaseApiSuccess) && (
-        <>
-          {header()}
-          <View style={styles.table}>
+
+      <View style={styles.table}>
+        {(isFetchByTokenBaseApiSuccess || isFetchByFairBaseApiSuccess) && (
+          <>
+            {header()}
             <FlatList
               ListEmptyComponent={() => (
                 <NoResultView
@@ -345,14 +344,14 @@ const TokensView = ({ exchange, detail }) => {
               onEndReachedThreshold={0}
               ListFooterComponent={renderFooter}
             />
-          </View>
-        </>
-      )}
+          </>
+        )}
+      </View>
     </View>
   )
 }
 const styles = StyleSheet.create({
-  table: { width: '100%', height: 550 },
+  table: { width: '100%', height: 500 },
   col1: { width: '24%', paddingRight: 14 },
   col2: { width: '23%', paddingRight: 5 },
   col3: { width: '25%', paddingRight: 5 },
