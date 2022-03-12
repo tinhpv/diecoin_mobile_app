@@ -46,10 +46,10 @@ export const amountOfNumberToBeRounded = num => {
 export const displayPrice = price => {
   let fullPrice = removeExponents(price)
   if (Number(fullPrice) >= 1) {
-    return fullPrice
-  } else {
     return Number(fullPrice).toFixed(
       amountOfNumberToBeRounded(Number(fullPrice)),
     )
+  } else {
+    return fullPrice
   }
 }

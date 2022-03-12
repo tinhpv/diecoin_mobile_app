@@ -1,12 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import {
-  TouchableOpacity,
-  Image,
-  StyleSheet,
-  ScrollView,
-  ActivityIndicator,
-  Linking,
-} from 'react-native'
+import { ScrollView, ActivityIndicator, Linking } from 'react-native'
 import PropTypes from 'prop-types'
 import { useTheme } from '@/Hooks'
 import Spacer from '@/Components/Spacer'
@@ -17,6 +10,7 @@ import {
   removeFromFavoriteList,
 } from '@/Containers/Favorite/FavoriteHelper'
 import IconButton from '@/Components/IconButton'
+import ImageButton from '@/Components/ImageButton'
 import { swapApps } from '@/Constant'
 
 const ActionStack = ({ exchange, tokenId, pairId }) => {
@@ -130,34 +124,6 @@ const ActionStack = ({ exchange, tokenId, pairId }) => {
     </ScrollView>
   )
 }
-
-const ImageButton = ({ image, onPress }) => (
-  <TouchableOpacity style={styles.imageButton} onPress={onPress}>
-    <Image source={image} style={styles.imageInImageButton} />
-  </TouchableOpacity>
-)
-
-const styles = StyleSheet.create({
-  label: { width: 120 },
-  imageInImageButton: {
-    width: 20,
-    height: 20,
-    resizeMode: 'stretch',
-    borderRadius: 20,
-  },
-  imageButton: {
-    borderRadius: 20,
-    borderWidth: 2,
-    borderColor: 'white',
-    backgroundColor: 'white',
-  },
-  buttonSelected: {
-    backgroundColor: 'white',
-  },
-  buttonUnSelected: {
-    backgroundColor: 'transparent',
-  },
-})
 
 ActionStack.propTypes = {
   exchange: PropTypes.oneOf([
