@@ -8,7 +8,7 @@ import {
   Text,
 } from 'react-native'
 import { useTheme } from '@/Hooks'
-import AlertView from '@/Components/AlertView'
+import { AlertView } from '@/Components'
 
 const NotificationContainer = () => {
   const { Images, Layout, Gutters, Fonts } = useTheme()

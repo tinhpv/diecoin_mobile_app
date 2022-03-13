@@ -11,12 +11,11 @@ import {
 } from 'react-native'
 import { useTheme } from '@/Hooks'
 import FavoriteItem from './FavoriteItem'
-import NoResultView from '@/Components/NoResultView'
 import { useFetchFavoritePairDetailListMutation } from '@/Services/modules/pair'
 import { getFavoriteList } from './FavoriteHelper'
 import { useDispatch } from 'react-redux'
 import { updateFavorite } from '@/Store/Favorite'
-import ItemDivider from '@/Components/ItemDivider'
+import { ItemDivider, NoResultView } from '@/Components'
 
 const FavoriteContainer = ({ navigation }) => {
   const dispatch = useDispatch()

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import {
   View,
   SafeAreaView,
@@ -8,17 +8,16 @@ import {
   Text,
   Image,
   ActivityIndicator,
+  FlatList,
+  TouchableOpacity,
 } from 'react-native'
 import { useTheme } from '@/Hooks'
-import { FlatList, TouchableOpacity } from 'react-native-gesture-handler'
+import { Separator, NoResultView } from '@/Components'
 import PoolItem from './PoolItem'
-import NoResultView from '@/Components/NoResultView'
 import {
   useFetchPairDetailListMutation,
   useLazyFetchPairListQuery,
 } from '@/Services/modules/pair'
-import { useEffect } from 'react'
-import Separator from '@/Components/Separator'
 
 const PoolListContainer = ({ route, navigation }) => {
   const { Images, Layout, Fonts, Gutters, Common } = useTheme()

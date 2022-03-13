@@ -9,8 +9,7 @@ import {
   isAFavoriteItem,
   removeFromFavoriteList,
 } from '@/Containers/Favorite/FavoriteHelper'
-import IconButton from '@/Components/IconButton'
-import ImageButton from '@/Components/ImageButton'
+import { ImageButton, IconButton } from '@/Components'
 import { swapApps } from '@/Constant'
 
 const ActionStack = ({ exchange, tokenId, pairId }) => {

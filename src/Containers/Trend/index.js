@@ -7,12 +7,12 @@ import {
   Platform,
   Text,
   ActivityIndicator,
+  FlatList,
 } from 'react-native'
 import { useTheme } from '@/Hooks'
 import { useLazyFetchTrendingTokenQuery } from '@/Services/modules/token'
-import { FlatList } from 'react-native-gesture-handler'
 import TokenItemView from './Components/TokenItemView'
-import Separator from '@/Components/Separator'
+import { Separator } from '@/Components'
 
 const TrendContainer = () => {
   // VARIABLES

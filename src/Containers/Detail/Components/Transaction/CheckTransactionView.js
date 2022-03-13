@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   LogBox,
 } from 'react-native'
-import Separator from '@/Components/Separator'
+import { Separator } from '@/Components'
 import { useTheme } from '@/Hooks'
 import { useFetchTopTradeQuery } from '@/Services/modules/transaction'
 
