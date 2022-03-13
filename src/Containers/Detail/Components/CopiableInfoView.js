@@ -20,7 +20,6 @@ const CopiableInfoView = ({ label, content }) => {
       <TouchableOpacity
         onPress={() => {
           Clipboard.setString(content)
-          // TODO: Show toast
         }}
       >
         <Image source={Images.copy} style={styles.image} />

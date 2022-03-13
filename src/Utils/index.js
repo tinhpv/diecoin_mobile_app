@@ -1,2 +1,2 @@
-export { default as notify } from './notify'
-export * from './number'
+export * from './numbers'
+export * from './datetime'

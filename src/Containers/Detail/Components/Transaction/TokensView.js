@@ -15,7 +15,7 @@ import {
   useLazyFetchTransactionByPairQuery,
   useLazyFetchLatestTransactionByFairQuery,
 } from '@/Services/modules/transaction'
-import { convertToDateString, convertToTimeString } from '@/Utils/datetime'
+import { convertToDateString, convertToTimeString } from '@/Utils'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { displayPrice } from '@/Utils/numbers'
 
