@@ -17,13 +17,11 @@ import { api } from '@/Services/api'
 import * as modules from '@/Services/modules'
 import theme from './Theme'
 import favorite from './Favorite'
-import search from './Search'
 import token from './Token'
 
 const reducers = combineReducers({
   theme,
   favorite,
-  search,
   token,
   ...Object.values(modules).reduce(
     (acc, module) => ({

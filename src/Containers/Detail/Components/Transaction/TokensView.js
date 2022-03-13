@@ -8,8 +8,7 @@ import {
   Linking,
 } from 'react-native'
 import { Separator, NoResultView } from '@/Components'
-import { useTheme } from '@/Hooks'
-import { useToken } from '@/Hooks/Token'
+import { useTheme, useToken } from '@/Hooks'
 import {
   useLazyFetchTransactionQuery,
   useLazyFetchLatestTransactionQuery,

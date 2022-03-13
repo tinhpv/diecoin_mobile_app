@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
-export const useToken = detail => {
+const useToken = detail => {
   const storedSelectedToken = useSelector(state => {
     return state.token.selectedTokenId
   })
@@ -20,3 +20,5 @@ export const useToken = detail => {
 
   return tokenId
 }
+
+export default useToken

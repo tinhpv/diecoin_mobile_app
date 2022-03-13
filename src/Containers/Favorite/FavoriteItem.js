@@ -9,8 +9,7 @@ import {
 } from 'react-native'
 import { VictoryLine } from 'victory-native'
 
-import { useTheme } from '@/Hooks'
-import { useFavoritePair } from './Hooks'
+import { useTheme, useFavoritePair } from '@/Hooks'
 import PairView from '../Detail/Components/PairView'
 import { navigate } from '@/Navigators/utils'
 import { CHART_DATA_DEC, CHART_DATA_INC } from '../Home/DataSource/ChartData'

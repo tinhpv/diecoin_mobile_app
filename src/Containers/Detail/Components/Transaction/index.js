@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import { View, StyleSheet } from 'react-native'
-import { useTheme } from '@/Hooks'
-import { useMainToken } from '../../../../Hooks/Pair/useMainToken'
-import { useSearchTerm } from '@/Containers/Search/Hooks/useSearchTerm'
+import { useTheme, useToken } from '@/Hooks'
 import SegmentedControlTab from 'react-native-segmented-control-tab'
 
 import TokensView from './TokensView'
@@ -11,8 +9,7 @@ import CheckTransactionView from './CheckTransactionView'
 const TransactionView = ({ detail, exchange }) => {
   const { Fonts, Common, Gutters } = useTheme()
   const [selectedTab, setSelectedTab] = useState(0)
-  const searchTerm = useSearchTerm()
-  const { mainToken } = useMainToken(detail, searchTerm)
+  const selectedTokenId = useToken(detail)
 
   return (
     <View style={[Common.contentContainerRounded]}>
@@ -33,14 +30,14 @@ const TransactionView = ({ detail, exchange }) => {
       {selectedTab === 1 && (
         <CheckTransactionView
           exchange={exchange}
-          tokenId={mainToken.id}
+          tokenId={selectedTokenId}
           type="seller"
         />
       )}
       {selectedTab === 2 && (
         <CheckTransactionView
           exchange={exchange}
-          tokenId={mainToken.id}
+          tokenId={selectedTokenId}
           type="buyer"
         />
       )}

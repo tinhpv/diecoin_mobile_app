@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
-export const useFavoritePair = pairID => {
+const useFavoritePair = pairID => {
   const storedFavoriteList = useSelector(state => state.favorite.favoriteList)
   const [favoritePair, setFavoritePair] = useState({
     fee24h: 0,
@@ -35,3 +35,5 @@ export const useFavoritePair = pairID => {
 
   return favoritePair
 }
+
+export default useFavoritePair

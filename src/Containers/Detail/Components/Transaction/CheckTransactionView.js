@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import {
   View,
   ActivityIndicator,
@@ -6,7 +6,6 @@ import {
   Text,
   FlatList,
   TouchableOpacity,
-  LogBox,
 } from 'react-native'
 import { Separator } from '@/Components'
 import { useTheme } from '@/Hooks'
@@ -20,10 +19,6 @@ const CheckTransactionView = ({ exchange, tokenId, type }) => {
     tokenId,
     type,
   })
-
-  useEffect(() => {
-    LogBox.ignoreLogs(['VirtualizedLists should never be nested'])
-  }, [])
 
   const header = () => {
     return (
