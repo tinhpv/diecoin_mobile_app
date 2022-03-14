@@ -40,16 +40,23 @@ export const removeExponents = num => {
 }
 
 export const amountOfNumberToBeRounded = num => {
-  return num >= 1 ? 7 : 14
+  if (num >= 10) {
+    return 2
+  } else if (num >= 1) {
+    return 5
+  } else if (num >= 0.00001) {
+    return 7
+  } else if (num >= 0.000000001) {
+    return 10
+  }
+  return 14
 }
 
 export const displayPrice = price => {
   let fullPrice = removeExponents(price)
-  if (Number(fullPrice) >= 1) {
-    return Number(fullPrice).toFixed(
-      amountOfNumberToBeRounded(Number(fullPrice)),
-    )
-  } else {
-    return fullPrice
-  }
+  return Number(fullPrice).toFixed(amountOfNumberToBeRounded(Number(fullPrice)))
+}
+
+export const displayPercent = percent => {
+  return percent.toFixed(2)
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import { View, Image, Text, StyleSheet } from 'react-native'
 
 import { useTheme } from '@/Hooks'
+import { displayPrice } from '@/Utils'
 
 const TokenItemView = ({ token }) => {
   const { Fonts, Layout, Gutters } = useTheme()
@@ -20,7 +21,9 @@ const TokenItemView = ({ token }) => {
 
       {/* PRICE / CHANGE */}
       <View style={[Layout.col]}>
-        <Text style={[Fonts.textSmall, Fonts.textRight]}>${token.price}</Text>
+        <Text style={[Fonts.textSmall, Fonts.textRight]}>
+          ${displayPrice(token.price)}
+        </Text>
         <Text
           style={[
             isIncreasing ? Fonts.textSmallSuccess : Fonts.textSmallError,

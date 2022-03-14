@@ -205,7 +205,7 @@ const PoolListContainer = ({ route, navigation }) => {
           {/* } */}
         </View>
       </View>
-      <SafeAreaView style={styles.are} />
+      <SafeAreaView style={styles.area} />
     </ImageBackground>
   )
 }

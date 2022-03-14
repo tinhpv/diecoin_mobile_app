@@ -42,7 +42,7 @@ const PoolItem = ({ item, exchange, onPress }) => {
 
         {/* LP HOLDING */}
         <View style={[Gutters.smallRMargin, styles.price]}>
-          <Text style={Fonts.textSmallBoldSuccess}>
+          <Text style={[Fonts.textSmallBoldSuccess, Fonts.textRight]}>
             ${displayPrice(item.tvl)}
           </Text>
         </View>

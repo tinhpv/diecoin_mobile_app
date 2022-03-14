@@ -39,7 +39,7 @@ const ChartBox = ({ detail, exchange }) => {
         </Text>
 
         {/* 24h CHANGE */}
-        <VolumeChangeView percent={newDetail.vol24hPercent} />
+        <VolumeChangeView percent={newDetail.token0.token0Price24hPercent} />
       </View>
 
       {/* TOKEN-1 PRICE */}

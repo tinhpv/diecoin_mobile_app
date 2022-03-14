@@ -13,6 +13,7 @@ import { useTheme, useFavoritePair } from '@/Hooks'
 import PairView from '../Detail/Components/PairView'
 import { navigate } from '@/Navigators/utils'
 import { CHART_DATA_DEC, CHART_DATA_INC } from '../Home/DataSource/ChartData'
+import { displayPrice } from '@/Utils'
 
 const { width } = Dimensions.get('window')
 
@@ -20,7 +21,6 @@ const FavoriteItem = ({ pairId }) => {
   const { Gutters, Fonts, Common, Images, Layout, Colors } = useTheme()
   const favoritePair = useFavoritePair(pairId)
   const isIncreasing = favoritePair.vol24hPercent >= 0
-  const amountOfNumToRound = favoritePair.token0.priceUsd > 0 ? 2 : 4
   const numberRandom = useRef(Math.floor(Math.random() * 3))
   const chartDataSource = isIncreasing
     ? CHART_DATA_INC[numberRandom.current]
@@ -54,7 +54,7 @@ const FavoriteItem = ({ pairId }) => {
             Gutters.tinyVMargin,
           ]}
         >
-          $ {favoritePair.token0.priceUsd.toFixed(amountOfNumToRound)}
+          $ {displayPrice(favoritePair.token0.priceUsd)}
         </Text>
 
         {/* INCREASING RATE */}
@@ -67,12 +67,10 @@ const FavoriteItem = ({ pairId }) => {
             ]}
           />
           <Text
-            style={[
-              isIncreasing ? Fonts.textTinySuccess : Fonts.textSmallError,
-            ]}
+            style={[isIncreasing ? Fonts.textTinySuccess : Fonts.textTinyError]}
           >
-            {favoritePair.vol24hPercent !== 0
-              ? (favoritePair.vol24hPercent * 100).toFixed(2)
+            {favoritePair.token0.token0Price24hPercent !== 0
+              ? (favoritePair.token0.token0Price24hPercent * 100).toFixed(2)
               : 0}
             %
           </Text>

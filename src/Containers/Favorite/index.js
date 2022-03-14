@@ -39,6 +39,7 @@ const FavoriteContainer = ({ navigation }) => {
 
   const checkFavoriteList = useCallback(async () => {
     const favoriteList = await getFavoriteList()
+    console.log(favoriteList)
     favoriteList.length > 0 &&
       fetchFavoritePairDetailList({
         body: {

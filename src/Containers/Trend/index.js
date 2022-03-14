@@ -14,7 +14,7 @@ import { useLazyFetchTrendingTokenQuery } from '@/Services/modules/token'
 import TokenItemView from './Components/TokenItemView'
 import { Separator } from '@/Components'
 
-const TrendContainer = () => {
+const TrendContainer = ({ navigation }) => {
   // VARIABLES
   const { Images, Layout, Gutters, Fonts } = useTheme()
   const [tokenList, setTokenList] = useState([])
@@ -28,22 +28,18 @@ const TrendContainer = () => {
 
   useEffect(() => {
     fetchTrendingToken()
-  }, [fetchTrendingToken])
+
+    const unsubscribe = navigation.addListener('focus', () => {
+      fetchTrendingToken()
+    })
+    return unsubscribe
+  }, [fetchTrendingToken, navigation])
 
   useEffect(() => {
     if (isSuccess) {
       setTokenList(data)
     }
   }, [isSuccess, data])
-
-  useEffect(() => {
-    const idInterval = setInterval(() => {
-      fetchTrendingToken()
-    }, 5000)
-    return () => {
-      clearInterval(idInterval)
-    }
-  }, [fetchTrendingToken])
 
   // UI IMPLEMENTATION
 

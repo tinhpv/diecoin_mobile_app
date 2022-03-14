@@ -1,25 +1,30 @@
 import React, { useEffect, useState } from 'react'
 import { View, ActivityIndicator } from 'react-native'
 import { useTheme } from '@/Hooks'
-import AutoScroll from '@homielab/react-native-auto-scroll'
 import TrendingTokenItemView from './TrendingTokenItemView'
-import { useLazyFetchTrendingTokenQuery } from '@/Services/modules/token'
-import { FlatList } from 'react-native-gesture-handler'
+import { useLazyFetchTop3TokenInfoQuery } from '@/Services/modules/token'
+import { useNavigation } from '@react-navigation/native'
 
 const TopCoinView = () => {
-  const { Gutters } = useTheme()
+  const { Gutters, Layout } = useTheme()
   const [trendingTokenList, setTrendingTokenList] = useState([])
+  const navigation = useNavigation()
 
   const [
-    fetchTrendingToken,
+    fetchTop3TokenInfo,
     { isLoading, data, isSuccess },
-  ] = useLazyFetchTrendingTokenQuery()
+  ] = useLazyFetchTop3TokenInfoQuery()
 
   // API HANDLING
 
   useEffect(() => {
-    fetchTrendingToken()
-  }, [fetchTrendingToken])
+    fetchTop3TokenInfo()
+
+    const unsubscribe = navigation.addListener('focus', () => {
+      fetchTop3TokenInfo()
+    })
+    return unsubscribe
+  }, [fetchTop3TokenInfo, navigation])
 
   useEffect(() => {
     if (isSuccess) {
@@ -29,31 +34,27 @@ const TopCoinView = () => {
 
   useEffect(() => {
     const idInterval = setInterval(() => {
-      fetchTrendingToken()
+      fetchTop3TokenInfo()
     }, 5000)
     return () => {
       clearInterval(idInterval)
     }
-  }, [fetchTrendingToken])
+  }, [fetchTop3TokenInfo])
 
   // UI IMPLEMENTATION
 
   return (
-    <View style={Gutters.largeVMargin}>
+    <View style={[Gutters.largeVMargin, Layout.fill]}>
       {isLoading && (
         <ActivityIndicator style={Gutters.regularVMargin} size={'small'} />
       )}
-      <AutoScroll endPaddingWidth={0}>
-        <FlatList
-          showsHorizontalScrollIndicator={false}
-          horizontal
-          data={trendingTokenList}
-          keyExtractor={item => item.order}
-          renderItem={({ item }) => (
-            <TrendingTokenItemView key={item.order} token={item} />
-          )}
-        />
-      </AutoScroll>
+      {trendingTokenList.length > 0 && (
+        <View style={[Layout.row, Layout.justifyContentBetween]}>
+          <TrendingTokenItemView token={trendingTokenList[0]} />
+          <TrendingTokenItemView token={trendingTokenList[1]} />
+          <TrendingTokenItemView token={trendingTokenList[2]} />
+        </View>
+      )}
     </View>
   )
 }

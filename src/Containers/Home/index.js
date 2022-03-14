@@ -69,7 +69,9 @@ const HomeContainer = () => {
           </View>
 
           {/* Top coin */}
-          <TopCoinView />
+          <View style={[Layout.row]}>
+            <TopCoinView />
+          </View>
 
           {/* Exchange */}
           <View>

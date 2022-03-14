@@ -45,10 +45,10 @@ export default function ({ FontSize, Colors }) {
       fontSize: FontSize.tiny,
       color: Colors.success,
     },
-    textLittleBoldSuccess: {
+    textLittleSuccess: {
       fontFamily: 'utm-avo',
       fontSize: FontSize.little,
-      fontWeight: 'bold',
+
       color: Colors.success,
     },
     textSmallError: {
@@ -61,9 +61,15 @@ export default function ({ FontSize, Colors }) {
       fontSize: FontSize.tiny,
       color: Colors.error,
     },
-    textLittleBoldError: {
+    textExtremelySmallSuccess: {
       fontFamily: 'utm-avo',
-      fontSize: FontSize.little,
+      fontSize: FontSize.extremelySmall,
+      fontWeight: 'bold',
+      color: Colors.success,
+    },
+    textExtremelySmallError: {
+      fontFamily: 'utm-avo',
+      fontSize: FontSize.extremelySmall,
       fontWeight: 'bold',
       color: Colors.error,
     },

@@ -23,6 +23,7 @@ export const NavigationColors = {
 }
 
 export const FontSize = {
+  extremelySmall: 6,
   little: 8,
   tiny: 11,
   small: 14,

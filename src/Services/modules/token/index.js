@@ -3,6 +3,7 @@ import searchToken from './searchToken'
 import fetchSocialNetworkInfo from './fetchSocialNetworkInfo'
 import fetchTokenInfo from './fetchTokenInfo'
 import fetchTrendingToken from './fetchTrendingToken'
+import fetchTop3TokenInfo from './fetchTop3TokenInfo'
 
 export const tokenApi = api.injectEndpoints({
   endpoints: build => ({
@@ -10,6 +11,7 @@ export const tokenApi = api.injectEndpoints({
     fetchSocialNetworkInfo: fetchSocialNetworkInfo(build),
     fetchTokenInfo: fetchTokenInfo(build),
     fetchTrendingToken: fetchTrendingToken(build),
+    fetchTop3TokenInfo: fetchTop3TokenInfo(build),
   }),
   overrideExisting: false,
 })
@@ -19,4 +21,5 @@ export const {
   useFetchSocialNetworkInfoQuery,
   useFetchTokenInfoQuery,
   useLazyFetchTrendingTokenQuery,
+  useLazyFetchTop3TokenInfoQuery,
 } = tokenApi

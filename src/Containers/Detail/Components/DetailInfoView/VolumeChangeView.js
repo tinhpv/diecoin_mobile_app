@@ -2,10 +2,11 @@ import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { useTheme } from '@/Hooks'
 import PropTypes from 'prop-types'
+import { displayPercent } from '@/Utils'
 
 const VolumeChangeView = ({ percent }) => {
   const { Layout, Gutters, Fonts, Common } = useTheme()
-  const isIncreasing = percent > 0
+  const isIncreasing = percent >= 0
 
   return (
     <View
@@ -18,7 +19,7 @@ const VolumeChangeView = ({ percent }) => {
         style={isIncreasing ? Fonts.textSmallSuccess : Fonts.textSmallError}
       >
         {isIncreasing ? '+' : ''}
-        {(percent * 100).toFixed(2)}%
+        {displayPercent(percent * 100)}%
       </Text>
     </View>
   )
